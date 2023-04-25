@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <title>Vue Practice</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="form">
+        <label for="goal"> <h1>Goal</h1></label>
+        <input
+          type="text"
+          id="goal"
+          placeholder="Enter a new goal..."
+          v-model="enteredValue"
+        />
+
+        <button v-on:click="addGoal">Add Goal</button>
+      </div>
+      <ul>
+        <li v-for="goal in goals">{{ goal }}</li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
