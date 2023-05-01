@@ -21,8 +21,9 @@
       <h2>Events In Action</h2>
       <hr />
       <div class="button-container">
-        <button class="add" v-on:click="add()">ADD</button
-        ><button class="remove" v-on:click="reduce()">REDUCE</button>
+        <!-- USE V-ON WHEN USING EVENTS LISTENERS. EXAMPLE BELOW -->
+        <button class="add" v-on:click="add(5)">ADD 5</button
+        ><button class="remove" v-on:click="reduce(5)">REDUCE 5</button>
       </div>
       <p>Result: {{ counter }}</p>
     </section>

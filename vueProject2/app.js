@@ -15,11 +15,11 @@ const app = Vue.createApp({
       }
       return this.goalB;
     },
-    add() {
-      this.counter++;
+    add(num) {
+      this.counter += num;
     },
-    reduce() {
-      this.counter--;
+    reduce(num) {
+      this.counter -= num;
     },
   },
 });
