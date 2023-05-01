@@ -16,7 +16,7 @@ header {
   padding: 1rem;
 }
 
-section#user-goal {
+section#user-events {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
@@ -30,7 +30,7 @@ section#user-goal {
   flex-direction: column;
 }
 
-section#user-goal hr {
+section#user-events hr {
   width: 100%;
   height: 0.5rem;
   margin: 0rem;
@@ -39,22 +39,42 @@ section#user-goal hr {
   border: none;
 }
 
-section#user-goal h2 {
-    font-weight: bolder;
-    font-size: xx-large;
-    margin-bottom: 0rem
+section#user-events h2 {
+  font-weight: bolder;
+  font-size: xx-large;
+  margin-bottom: 0rem;
 }
-section#user-goal p {
-    color: white;
-    background-color: #00b792;
-    width: 100%;
-    border-radius: 20px;
-    padding: 1rem 0rem;
-    text-align: center;
-    font-weight: bold;
-    font-size: large;
-    margin-bottom: 0.5rem
+section#user-events p {
+  color: white;
+  background-color: #00b792;
+  width: 100%;
+  border-radius: 20px;
+  padding: 1rem 0rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: large;
+  margin-bottom: 0.5rem;
 }
-section#user-goal a {
-    text-decoration: none;
+section#user-events a {
+  text-decoration: none;
+}
+section#user-events button {
+  border-radius: 20px;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+}
+section#user-events button.add {
+  background-color: green;
+}
+section#user-events button.remove {
+  background-color: red;
+}
+div.button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
 }

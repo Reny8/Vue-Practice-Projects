@@ -4,6 +4,7 @@ const app = Vue.createApp({
       goalA: 'Finish the course and learn Vue!',
       goalB: 'Master Vue and build amazing apps!',
       link: 'https://vuejs.org',
+      counter: 0,
     };
   },
   methods: {
@@ -15,6 +16,14 @@ const app = Vue.createApp({
       return this.goalB;
     },
   },
+  removeClick() {
+    if (this.counter) {
+      return (this.counter -= 1);
+    }
+  },
+  addClick() {
+    return (this.counter += 1);
+  },
 });
 
-app.mount('#user-goal');
+app.mount('#user-events');

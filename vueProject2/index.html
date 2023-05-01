@@ -15,14 +15,16 @@
   </head>
   <body>
     <header>
-      <h1>Vue Course Goals</h1>
+      <h1>Vue Events</h1>
     </header>
-    <section id="user-goal">
-      <h2>My Course Goal</h2>
+    <section id="user-events">
+      <h2>Events In Action</h2>
       <hr />
-      <p>{{ outputGoal() }}</p>
-      <!-- V-BIND TO ADD THE LINK FROM THE DATA OBJECT -->
-      <p>Learn more about <a v-bind:href="link" target="_blank">Vue</a></p>
+      <div class="button-container">
+        <button class="add" v-on:click="counter++">ADD</button
+        ><button class="remove" v-on:click="counter--">REDUCE</button>
+      </div>
+      <p>Result: {{ counter }}</p>
     </section>
   </body>
 </html>
