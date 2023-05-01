@@ -5,7 +5,8 @@ const app = Vue.createApp({
       goalB: 'Master Vue and build amazing apps!',
       link: 'https://vuejs.org',
       counter: 0,
-      name: ''
+      name: '',
+      confirmedName: '',
     };
   },
   methods: {
@@ -22,8 +23,8 @@ const app = Vue.createApp({
     reduce(num) {
       this.counter -= num;
     },
-    clear() {
-      this.name = ''
+    setName() {
+      this.confirmedName = this.name
     }
   },
 });

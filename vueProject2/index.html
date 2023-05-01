@@ -28,10 +28,10 @@
       <p>Result: {{ counter }}</p>
       <div class="name-container">
         <input type="text" v-model="name"/>
-        <button v-on:click="clear">CLEAR</button>
+        <button v-on:click="setName">SUBMIT</button>
       </div>
 
-      <p>Your Name: {{ name }}</p>
+      <p>Your Name: {{ confirmedName }}</p>
     </section>
   </body>
 </html>
