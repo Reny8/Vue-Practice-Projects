@@ -22,9 +22,6 @@ const app = Vue.createApp({
     reduce(num) {
       this.counter -= num;
     },
-    setName(e) {
-      this.name = e.target.value
-    },
     clear() {
       this.name = ''
     }
