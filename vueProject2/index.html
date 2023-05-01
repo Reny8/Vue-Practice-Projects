@@ -26,6 +26,12 @@
         ><button class="remove" v-on:click="reduce(5)">REDUCE 5</button>
       </div>
       <p>Result: {{ counter }}</p>
+      <div class="name-container">
+        <input type="text" v-model="name"/>
+        <button v-on:click="clear">CLEAR</button>
+      </div>
+
+      <p>Your Name: {{ name }}</p>
     </section>
   </body>
 </html>
