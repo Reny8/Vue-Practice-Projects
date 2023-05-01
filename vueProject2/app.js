@@ -16,14 +16,6 @@ const app = Vue.createApp({
       return this.goalB;
     },
   },
-  removeClick() {
-    if (this.counter) {
-      return (this.counter -= 1);
-    }
-  },
-  addClick() {
-    return (this.counter += 1);
-  },
 });
 
 app.mount('#user-events');
