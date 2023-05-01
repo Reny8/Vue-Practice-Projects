@@ -1,9 +1,10 @@
 const app = Vue.createApp({
-    data() {
-        return {
-            courseGoal: 'Finish the course and learn Vue!'
-        }
-    }
-})
+  data() {
+    return {
+      courseGoal: 'Finish the course and learn Vue!',
+      link: 'https://vuejs.org',
+    };
+  },
+});
 
-app.mount('#user-goal')
+app.mount('#user-goal');

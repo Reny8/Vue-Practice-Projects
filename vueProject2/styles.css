@@ -40,6 +40,11 @@ section#user-goal hr {
   border: none;
 }
 
+section#user-goal h2 {
+    font-weight: bolder;
+    font-size: xx-large;
+    margin-bottom: 0rem
+}
 section#user-goal p {
     color: white;
     background-color: #00b792;
