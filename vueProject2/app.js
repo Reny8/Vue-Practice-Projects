@@ -15,6 +15,12 @@ const app = Vue.createApp({
       }
       return this.goalB;
     },
+    add() {
+      this.counter++;
+    },
+    reduce() {
+      this.counter--;
+    },
   },
 });
 

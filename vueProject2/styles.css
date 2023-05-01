@@ -64,6 +64,9 @@ section#user-events button {
   border: none;
   padding: 0.5rem 2rem;
 }
+section#user-events button:active {
+  scale: 95%;
+}
 section#user-events button.add {
   background-color: green;
 }
