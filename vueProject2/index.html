@@ -29,6 +29,7 @@
       </div>
       <p>Result: {{ counter }}</p>
       <div class="name-container">
+        <!-- :value IS SHORTHAND FOR v-bind:value -->
         <input type="text" v-model="name" />
         <button v-on:click="setName">SUBMIT</button>
       </div>

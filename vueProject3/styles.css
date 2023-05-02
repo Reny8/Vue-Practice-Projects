@@ -1,0 +1,38 @@
+html {
+  font-family: Rubik;
+  background-color: #efefef;
+}
+
+header {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: #00b792;
+  margin: 2rem 2rem;
+  padding: 1rem;
+}
+
+section#styling {
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00b792;
+  background-color: white;
+  margin: 2rem 2rem;
+  padding: 0rem 1rem;
+  flex-direction: column;
+}
+
+section#styling div.demo {
+  width: 100%;
+  height: 10rem;
+  border: dashed 3px #cbcbcb;
+  margin: 1rem;
+}
