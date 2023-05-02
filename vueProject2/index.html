@@ -23,11 +23,13 @@
       <div class="button-container">
         <!-- USE V-ON WHEN USING EVENTS LISTENERS. EXAMPLE BELOW -->
         <button class="add" v-on:click="add(5)">ADD 5</button
-        ><button class="remove" v-on:click="reduce(5)">REDUCE 5</button>
+        >
+        <!-- @click IS SHORTHAND FOR THE V-ON:CLICK. WORKS THE SAME -->
+        <button class="remove" @click="reduce(5)">REDUCE 5</button>
       </div>
       <p>Result: {{ counter }}</p>
       <div class="name-container">
-        <input type="text" v-model="name"/>
+        <input type="text" v-model="name" />
         <button v-on:click="setName">SUBMIT</button>
       </div>
 
