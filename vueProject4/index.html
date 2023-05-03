@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Vue Course Goals</title>
+  </head>
+  <body>
+    <header>
+      <h1>Vue Course Goals</h1>
+    </header>
+    <section id="goals">
+      <h1>My Course Goals</h1>
+      <hr />
+      <div>
+        <input type="text" placeholder="Add a goal..." v-model="inputValue" />
+        <button @click="addGoal"><b>Add Goal</b></button>
+      </div>
+      <p v-if="!goals.length">{{ content }}</p>
+
+      <ul v-if="goals.length">
+        <li v-for="goal in goals"><b>{{ goal }}</b></li>
+      </ul>
+    </section>
+  </body>
+</html>
