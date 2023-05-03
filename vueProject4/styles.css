@@ -62,6 +62,9 @@ section#goals input {
   font-family: Josefin Sans;
   border-right: none;
 }
+section#goals input:focus {
+    outline:none
+}
 section#goals div > button {
   font-family: Josefin Sans;
   border: solid 1px #bd2e5e;
@@ -78,7 +81,7 @@ section#goals div > button:hover {
 }
 
 section#goals ul {
-  list-style-type: circle;
+  list-style-type: none;
   display: flex;
   width: 85%;
   gap: 7px;
@@ -93,4 +96,11 @@ section#goals ul {
 section#goals ul li {
   text-transform: capitalize;
   font-size: large;
+  display:flex;
+  align-items: center;
 }
+section#goals input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+    margin-right: 0.5rem;
+  }

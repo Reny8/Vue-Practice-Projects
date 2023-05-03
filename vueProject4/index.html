@@ -29,7 +29,9 @@
       <p v-if="!goals.length">{{ content }}</p>
 
       <ul v-if="goals.length">
-        <li v-for="goal in goals"><b>{{ goal }}</b></li>
+        <li v-for="goal in goals">
+          <input type="checkbox" @click="deleteGoal(goal)"/><b>{{ goal }}</b>
+        </li>
       </ul>
     </section>
   </body>
