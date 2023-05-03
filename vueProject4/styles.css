@@ -83,11 +83,9 @@ section#goals div > button:hover {
 section#goals ul {
   list-style-type: none;
   display: flex;
-  width: 85%;
+  width: 100%;
   gap: 7px;
-  padding: 1.5rem 2rem;
-  background-color: #368a6aa3;
-  border-radius: 5px;
+  padding: 0.5rem 0rem;
   flex-direction: column;
   align-items: flex-start;
   margin: 0rem;
@@ -96,11 +94,17 @@ section#goals ul {
 section#goals ul li {
   text-transform: capitalize;
   font-size: large;
-  display:flex;
-  align-items: center;
+  width: -webkit-fill-available;
+  background-color: #368a6aa3;
+  border-radius: 5px;
+  padding: 0.5rem
 }
 section#goals input[type=checkbox] {
     width: 20px;
     height: 20px;
     margin-right: 0.5rem;
   }
+section#goals span {
+    display: inline-flex;
+    align-items: flex-end;
+}
