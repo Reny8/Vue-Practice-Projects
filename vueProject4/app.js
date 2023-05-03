@@ -1,7 +1,6 @@
 const app = Vue.createApp({
   data() {
     return {
-      content: 'No goals have been added yet. Please start adding some!',
       goals: [],
       inputValue: '',
     };

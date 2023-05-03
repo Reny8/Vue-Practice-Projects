@@ -26,7 +26,7 @@
         <input type="text" placeholder="Add a goal..." v-model="inputValue" />
         <button @click="addGoal"><b>Add Goal</b></button>
       </div>
-      <p v-if="!goals.length">{{ content }}</p>
+      <p v-if="!goals.length">No goals have been added yet. Please start adding some!</p>
 
       <ul v-if="goals.length">
         <li v-for="goal in goals">
