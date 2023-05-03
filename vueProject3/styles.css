@@ -36,3 +36,7 @@ section#styling div.demo {
   border: dashed 3px #cbcbcb;
   margin: 1rem;
 }
+
+section#styling div.demo.active {
+  border: dashed 3px red
+}
