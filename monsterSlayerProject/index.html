@@ -40,7 +40,7 @@
         <button @click="heal">heal</button>
         <button>surrender</button>
       </section>
-      <section id="battle-log" v-if="monsterHealth > 0 && playerHealth > 0">
+      <section id="battle-log" v-if="displayBattleLog">
         <h1>battle log</h1>
         <p v-if="!battleLog.length">No actions have been made</p>
 
@@ -48,7 +48,7 @@
       </section>
       <section id="game-over" v-else>
         <h1>game over</h1>
-        <p v-if="monsterHealth > playerHealth">
+        <p v-if="youLost">
           Oh no! Looks like Monster has won this battle.
         </p>
         <p v-else>Congrats! You have slayed the Monster!</p>

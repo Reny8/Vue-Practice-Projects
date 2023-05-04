@@ -16,6 +16,12 @@ const app = Vue.createApp({
     },
     isDisabled() {
       return this.specialAttackAllowed < 5
+    },
+    youLost() {
+      return this.monsterHealth > this.playerHealth
+    },
+    displayBattleLog() {
+      return this.monsterHealth > 0 && this.playerHealth > 0
     }
   },
   methods: {
@@ -55,8 +61,8 @@ const app = Vue.createApp({
         this.monsterHealth > 0
       ) {
         this.playerHealth += 10;
-        let randomAttack = this.getRandomValue(1, 5);
-        if (randomAttack === 1) {
+        let randomAttack = this.getRandomValue(1, 4);
+        if (randomAttack <=2 ) {
           this.battleLog.push(
             'Oh no! Monster attacked you while you were healing yourself.'
           );
