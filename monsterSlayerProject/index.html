@@ -23,22 +23,20 @@
       <section id="monster-health">
         <h1>monster health</h1>
         <div id="monster-health-bar">
-          <span
-            :style="{ width: monsterHealth > 0 ? monsterHealth + '%': '0%' }"
-          ></span>
+          <span :style="monsterBar"></span>
         </div>
       </section>
       <section id="your-health">
         <h1>your health</h1>
         <div id="your-health-bar">
-          <span
-            :style="{ width: playerHealth > 0? playerHealth  + '%': '0%' }"
-          ></span>
+          <span :style="playerBar"></span>
         </div>
       </section>
       <section class="button-container">
         <button @click="attackMonster">attack</button>
-        <button>special attack</button>
+        <button :disabled="isDisabled" @click="specialAttack">
+          special attack
+        </button>
         <button @click="heal">heal</button>
         <button>surrender</button>
       </section>
@@ -46,7 +44,7 @@
         <h1>battle log</h1>
         <p v-if="!battleLog.length">No actions have been made</p>
 
-        <div v-else><p v-for="log in battleLog.slice(-3)">{{ log }}</p></div>
+        <div v-else><p v-for="log in battleLog">{{ log }}</p></div>
       </section>
       <section id="game-over" v-else>
         <h1>game over</h1>

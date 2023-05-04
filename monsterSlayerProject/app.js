@@ -3,8 +3,20 @@ const app = Vue.createApp({
     return {
       monsterHealth: 100,
       playerHealth: 100,
+      specialAttackAllowed: 0,
       battleLog: [],
     };
+  },
+  computed: {
+    monsterBar() {
+      return { width: this.monsterHealth > 0 ? this.monsterHealth + '%' : '0%' };
+    },
+    playerBar() {
+      return { width: this.playerHealth > 0 ? this.playerHealth + '%' : '0%' };
+    },
+    isDisabled() {
+      return this.specialAttackAllowed < 5
+    }
   },
   methods: {
     getRandomValue(min, max) {
@@ -17,6 +29,7 @@ const app = Vue.createApp({
         `You have attacked the monster with a strength of ${attackValue}`
       );
       this.attackPlayer();
+      this.specialAttackAllowed += 1
     },
     attackPlayer() {
       if (this.monsterHealth >= 0 && this.playerHealth >= 0) {
@@ -26,6 +39,14 @@ const app = Vue.createApp({
           `Monster has attacked you with a strength of ${attackValue}`
         );
       }
+    },
+    specialAttack() {
+      let attackValue = this.getRandomValue(10,25)
+      this.monsterHealth -= attackValue
+      this.battleLog.push(`You have attacked with a special attack value of: ${attackValue}`)
+      this.attackPlayer()
+      this.specialAttackAllowed = 0
+
     },
     heal() {
       if (
