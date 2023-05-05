@@ -20,16 +20,20 @@
       <h1>FriendList</h1>
     </header>
     <section id="app">
-      <div v-for="friend in friends" :key="friend.name[0]">
+      <div v-for="friend in friends" :key="friend.id">
         <h1>{{ friend.name }}</h1>
         <hr />
-        <button>show details</button>
-        <div>
-          <p><strong>Phone: </strong> {{ friend.phone }}</p>
-        </div>
-        <div>
-          <p><strong>Email: </strong> {{ friend.email }}</p>
-        </div>
+        <button @click="toggleDetails(friend.id)">
+          {{ friend.visible ? 'show details': 'hide details' }}
+        </button>
+        <span class="detail-container" v-show="friend.visible">
+          <div class="item">
+            <p><strong>Phone: </strong> {{ friend.phone }}</p>
+          </div>
+          <div class="item">
+            <p><strong>Email: </strong> {{ friend.email }}</p>
+          </div>
+        </span>
       </div>
     </section>
   </body>

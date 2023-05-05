@@ -2,6 +2,7 @@ const app = Vue.createApp({
   data() {
     return {
       friends: [],
+      counter: 0,
     };
   },
   methods: {
@@ -14,9 +15,20 @@ const app = Vue.createApp({
       );
     },
     addToList(name, phone, email) {
-      this.friends.push({ name: name, phone: phone, email: email });
+      this.friends.push({
+        id: this.counter++,
+        name: name,
+        phone: phone,
+        email: email,
+        visible: true,
+      });
+    },
+    toggleDetails(id) {
+      this.friends
+        .filter((item) => item.id === id)
+        .map((item) => (item.visible = !item.visible));
     },
   },
 }).mount('#app');
 
-app.addFriends()
+app.addFriends();

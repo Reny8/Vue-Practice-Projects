@@ -36,13 +36,20 @@ section#app > div {
     flex-direction: column;
     gap: 0.5rem
   }
-  section#app > div > div {
+  section#app div.item {
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
       rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-      width: 90%;
       text-align: center;
       color: black;
+      padding: 0.1rem;
+
+  }
+  section#app span.detail-container {
+    width: 100%;
+    display: flex;
+    gap: 0.8rem;
+    flex-direction: column;
   }
   section#app div hr {
     width: 100%;
