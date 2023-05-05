@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="app.js" defer></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>FriendList</title>
+  </head>
+  <body>
+    <header>
+      <h1>FriendList</h1>
+    </header>
+    <section id="app">
+      <div v-for="friend in friends" :key="friend.name[0]">
+        <h1>{{ friend.name }}</h1>
+        <hr />
+        <button>show details</button>
+        <div>
+          <p><strong>Phone: </strong> {{ friend.phone }}</p>
+        </div>
+        <div>
+          <p><strong>Email: </strong> {{ friend.email }}</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
