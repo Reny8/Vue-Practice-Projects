@@ -21,8 +21,8 @@ const app = Vue.createApp({
       return this.specialAttackAllowed < 5;
     },
     gameOver() {
-      return this.winner !== null
-    }
+      return this.winner !== null;
+    },
   },
   watch: {
     playerHealth(value) {
@@ -47,9 +47,7 @@ const app = Vue.createApp({
     attackMonster() {
       let attackValue = this.getRandomValue(5, 12);
       this.monsterHealth -= attackValue;
-      this.battleLog.push(
-        `You have attacked the monster with a strength of ${attackValue}`
-      );
+      this.addLogMessage('Player', 'Attack', attackValue);
       this.attackPlayer();
       this.specialAttackAllowed++;
     },
@@ -57,17 +55,13 @@ const app = Vue.createApp({
       if (this.monsterHealth >= 0 && this.playerHealth >= 0) {
         let attackValue = this.getRandomValue(8, 12);
         this.playerHealth -= attackValue;
-        this.battleLog.push(
-          `Monster has attacked you with a strength of ${attackValue}`
-        );
+        this.addLogMessage('Monster', 'Attack', attackValue);
       }
     },
     specialAttack() {
       let attackValue = this.getRandomValue(10, 25);
       this.monsterHealth -= attackValue;
-      this.battleLog.push(
-        `You have attacked with a special attack value of: ${attackValue}`
-      );
+      this.addLogMessage('Player', 'Special Attack', attackValue);
       this.attackPlayer();
       this.specialAttackAllowed = 0;
     },
@@ -75,28 +69,34 @@ const app = Vue.createApp({
       const healValue = this.getRandomValue(8, 20);
       if (this.playerHealth + healValue > 100) {
         this.playerHealth = 100;
+        this.addLogMessage('Player', 'Heal', `${this.playerHealth}%`);
       } else {
         this.playerHealth += healValue;
+        this.addLogMessage('Player', 'Heal', `${this.playerHealth}%`);
         let randomAttack = this.getRandomValue(1, 4);
         if (randomAttack <= 2) {
           this.specialAttackAllowed++;
-          this.battleLog.push(
-            'Oh no! Monster attacked you while you were healing yourself.'
-          );
           this.attackPlayer();
         }
       }
     },
     tryAgain() {
-      this.monsterHealth = 100,
-      this.playerHealth = 100,
-      this.specialAttackAllowed = 0,
-      this.winner = null,
-      this.battleLog = []
+      (this.monsterHealth = 100),
+        (this.playerHealth = 100),
+        (this.specialAttackAllowed = 0),
+        (this.winner = null),
+        (this.battleLog = []);
     },
     surrender() {
-      this.winner = 'monster'
-    }
+      this.winner = 'monster';
+    },
+    addLogMessage(who, what, value) {
+      this.battleLog.unshift({
+        actionBy: who,
+        actionType: what,
+        actionValue: value,
+      });
+    },
   },
 });
 

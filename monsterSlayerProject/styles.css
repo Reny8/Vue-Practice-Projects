@@ -86,7 +86,11 @@ section.button-container button:active {
 section#battle-log p {
   margin: 0rem;
 }
-
+section#battle-log span {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
 section.button-container button:disabled {
   background-color: #7d7d7d94;
   transition-duration: none;

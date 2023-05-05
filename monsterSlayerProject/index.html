@@ -37,19 +37,35 @@
         <button :disabled="isDisabled || gameOver" @click="specialAttack">
           special attack
         </button>
-        <button @click="heal" :disabled="gameOver">heal</button>
+        <button @click="heal" :disabled="gameOver || playerHealth === 100">
+          heal
+        </button>
         <button :disabled="gameOver" @click="surrender">surrender</button>
       </section>
       <section id="battle-log" v-if="!winner">
         <h1>battle log</h1>
         <p v-if="!battleLog.length">No actions have been made</p>
-        <div v-else><p v-for="log in battleLog">{{ log }}</p></div>
+        <div v-else>
+          <span v-for="log in battleLog">
+            <p
+              :style="{
+              color: log.actionBy === 'Monster' ? '#005aff' : 'green',
+            }"
+            >
+              {{ log.actionBy }}
+            </p>
+            -
+            <p :style="{
+              color: log.actionType.includes('Attack') ? '#c90000' : '#dd8f00',
+            }">{{ log.actionType }}</p>
+            -
+            <p style="font-style:italic">{{ log.actionValue }}</p>
+          </span>
+        </div>
       </section>
       <section id="game-over" v-else>
         <h1>game over</h1>
-        <p v-if="winner === 'monster'">
-          Monster has won this battle.
-        </p>
+        <p v-if="winner === 'monster'">Monster has won this battle.</p>
         <p v-else-if="winner === 'player'">
           Congrats! You have slayed the Monster!
         </p>
