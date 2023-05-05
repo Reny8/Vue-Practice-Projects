@@ -42,7 +42,16 @@
         </button>
         <button :disabled="gameOver" @click="surrender">surrender</button>
       </section>
-      <section id="battle-log" v-if="!winner">
+      <section id="game-over" v-if="winner">
+        <h1>game over</h1>
+        <p v-if="winner === 'monster'">Monster has won this battle.</p>
+        <p v-else-if="winner === 'player'">
+          Congrats! You have slayed the Monster!
+        </p>
+        <p v-else>This battle was a tie</p>
+        <button @click="tryAgain">try again</button>
+      </section>
+      <section id="battle-log">
         <h1>battle log</h1>
         <p v-if="!battleLog.length">No actions have been made</p>
         <div v-else>
@@ -55,22 +64,17 @@
               {{ log.actionBy }}
             </p>
             -
-            <p :style="{
+            <p
+              :style="{
               color: log.actionType.includes('Attack') ? '#c90000' : '#dd8f00',
-            }">{{ log.actionType }}</p>
+            }"
+            >
+              {{ log.actionType }}
+            </p>
             -
-            <p style="font-style:italic">{{ log.actionValue }}</p>
+            <p style="font-style: italic">{{ log.actionValue }}</p>
           </span>
         </div>
-      </section>
-      <section id="game-over" v-else>
-        <h1>game over</h1>
-        <p v-if="winner === 'monster'">Monster has won this battle.</p>
-        <p v-else-if="winner === 'player'">
-          Congrats! You have slayed the Monster!
-        </p>
-        <p v-else>This battle was a tie</p>
-        <button @click="tryAgain">try again</button>
       </section>
     </div>
   </body>
