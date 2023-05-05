@@ -33,25 +33,28 @@
         </div>
       </section>
       <section class="button-container">
-        <button @click="attackMonster">attack</button>
-        <button :disabled="isDisabled" @click="specialAttack">
+        <button @click="attackMonster" :disabled="gameOver">attack</button>
+        <button :disabled="isDisabled || gameOver" @click="specialAttack">
           special attack
         </button>
-        <button @click="heal">heal</button>
-        <button>surrender</button>
+        <button @click="heal" :disabled="gameOver">heal</button>
+        <button :disabled="gameOver" @click="surrender">surrender</button>
       </section>
-      <section id="battle-log" v-if="displayBattleLog">
+      <section id="battle-log" v-if="!winner">
         <h1>battle log</h1>
         <p v-if="!battleLog.length">No actions have been made</p>
-
         <div v-else><p v-for="log in battleLog">{{ log }}</p></div>
       </section>
       <section id="game-over" v-else>
         <h1>game over</h1>
-        <p v-if="youLost">
-          Oh no! Looks like Monster has won this battle.
+        <p v-if="winner === 'monster'">
+          Monster has won this battle.
         </p>
-        <p v-else>Congrats! You have slayed the Monster!</p>
+        <p v-else-if="winner === 'player'">
+          Congrats! You have slayed the Monster!
+        </p>
+        <p v-else>This battle was a tie</p>
+        <button @click="tryAgain">try again</button>
       </section>
     </div>
   </body>

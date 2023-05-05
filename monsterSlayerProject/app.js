@@ -4,25 +4,41 @@ const app = Vue.createApp({
       monsterHealth: 100,
       playerHealth: 100,
       specialAttackAllowed: 0,
+      winner: null,
       battleLog: [],
     };
   },
   computed: {
     monsterBar() {
-      return { width: this.monsterHealth > 0 ? this.monsterHealth + '%' : '0%' };
+      return {
+        width: this.monsterHealth > 0 ? this.monsterHealth + '%' : '0%',
+      };
     },
     playerBar() {
       return { width: this.playerHealth > 0 ? this.playerHealth + '%' : '0%' };
     },
     isDisabled() {
-      return this.specialAttackAllowed < 5
+      return this.specialAttackAllowed < 5;
     },
-    youLost() {
-      return this.monsterHealth > this.playerHealth
-    },
-    displayBattleLog() {
-      return this.monsterHealth > 0 && this.playerHealth > 0
+    gameOver() {
+      return this.winner !== null
     }
+  },
+  watch: {
+    playerHealth(value) {
+      if (value <= 0 && this.monsterHealth <= 0) {
+        this.winner = 'draw';
+      } else if (value <= 0) {
+        this.winner = 'monster';
+      }
+    },
+    monsterHealth(value) {
+      if (value <= 0 && this.playerHealth <= 0) {
+        this.winner = 'draw';
+      } else if (value <= 0) {
+        this.winner = 'player';
+      }
+    },
   },
   methods: {
     getRandomValue(min, max) {
@@ -35,7 +51,7 @@ const app = Vue.createApp({
         `You have attacked the monster with a strength of ${attackValue}`
       );
       this.attackPlayer();
-      this.specialAttackAllowed += 1
+      this.specialAttackAllowed++;
     },
     attackPlayer() {
       if (this.monsterHealth >= 0 && this.playerHealth >= 0) {
@@ -47,44 +63,40 @@ const app = Vue.createApp({
       }
     },
     specialAttack() {
-      let attackValue = this.getRandomValue(10,25)
-      this.monsterHealth -= attackValue
-      this.battleLog.push(`You have attacked with a special attack value of: ${attackValue}`)
-      this.attackPlayer()
-      this.specialAttackAllowed = 0
-
+      let attackValue = this.getRandomValue(10, 25);
+      this.monsterHealth -= attackValue;
+      this.battleLog.push(
+        `You have attacked with a special attack value of: ${attackValue}`
+      );
+      this.attackPlayer();
+      this.specialAttackAllowed = 0;
     },
     heal() {
-      if (
-        this.playerHealth <= 90 &&
-        this.playerHealth > 0 &&
-        this.monsterHealth > 0
-      ) {
-        this.playerHealth += 10;
+      const healValue = this.getRandomValue(8, 20);
+      if (this.playerHealth + healValue > 100) {
+        this.playerHealth = 100;
+      } else {
+        this.playerHealth += healValue;
         let randomAttack = this.getRandomValue(1, 4);
-        if (randomAttack <=2 ) {
+        if (randomAttack <= 2) {
+          this.specialAttackAllowed++;
           this.battleLog.push(
             'Oh no! Monster attacked you while you were healing yourself.'
           );
           this.attackPlayer();
         }
-        if (this.playerHealth < 100) {
-          this.battleLog.push(
-            `You have healed yourself to: ${this.playerHealth}`
-          );
-        }
-      } else if (
-        this.playerHealth > 90 &&
-        this.playerHealth <= 99 &&
-        this.playerHealth > 0 &&
-        this.monsterHealth > 0
-      ) {
-        this.playerHealth = 100;
-        this.battleLog.push(
-          `You have healed yourself to: ${this.playerHealth}`
-        );
       }
     },
+    tryAgain() {
+      this.monsterHealth = 100,
+      this.playerHealth = 100,
+      this.specialAttackAllowed = 0,
+      this.winner = null,
+      this.battleLog = []
+    },
+    surrender() {
+      this.winner = 'monster'
+    }
   },
 });
 

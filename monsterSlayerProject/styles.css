@@ -92,11 +92,32 @@ section.button-container button:disabled {
   transition-duration: none;
 }
 section.button-container button:disabled:hover {
-  cursor: not-allowed
+  cursor: not-allowed;
 }
 section.button-container button:disabled:active {
   box-shadow: none;
   transform: none;
+}
+
+section#game-over button {
+  text-transform: uppercase;
+  background-color: #044462;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+}
+section#game-over button:hover {
+  background-color: #044462b5;
+  transition-duration: 500ms;
+  cursor: pointer;
+}
+section#game-over button:active {
+  box-shadow: inset 0 2px 4px 0 black;
+  transform: scale(90%);
+  background-color: #044462;
 }
 @media screen and (max-width: 500px) {
   section.button-container {
