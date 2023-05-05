@@ -23,7 +23,7 @@
       <h1>My Course Goals</h1>
       <hr />
       <div>
-        <input type="text" placeholder="Add a goal..." v-model="inputValue" />
+        <input type="text" placeholder="Add a goal..." ref="inputValue" />
         <button @click="addGoal"><b>Add Goal</b></button>
       </div>
       <p v-if="!goals.length">

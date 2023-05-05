@@ -2,13 +2,12 @@ const app = Vue.createApp({
   data() {
     return {
       goals: [],
-      inputValue: '',
     };
   },
   methods: {
     addGoal() {
-      this.goals.push(this.inputValue);
-      this.inputValue = '';
+      this.goals.push(this.$refs.inputValue.value);
+      this.$refs.inputValue.value = '';
     },
     deleteGoal(item) {
       let newArray = this.goals.filter((goal) => goal !== item);
